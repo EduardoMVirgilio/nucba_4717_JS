@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clase 11 - Eventos</title>
+    <script src="app.js" defer></script>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+      }
+      #menu {
+        display: none;
+        &.active {
+          display: flex;
+        }
+      }
+
+      #gallery {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        gap: 1rem;
+        & picture {
+          width: 480px;
+          aspect-ratio: 1/1;
+          background-color: gray;
+          & img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
+        & ul {
+          display: flex;
+          justify-content: center;
+          height: 72px;
+          list-style: none;
+          margin: 0;
+          gap: 0.25rem;
+          & li {
+            cursor: pointer;
+            & img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Menu -->
+    <!--
+    <header>
+      <form action="" id="actions">
+        <button type="button">Menu</button>
+      </form>
+      <nav id="menu" class="">
+        <a href="#">Link</a>
+        <a href="#">Link</a>
+        <a href="#">Link</a>
+        <a href="#">Link</a>
+      </nav>
+    </header>
+    -->
+
+    <!-- Mostrar contraseña -->
+    <!--
+    <form action="" id="login">
+      <input type="password" placeholder="Contraseña..." />
+      <button type="button">Mostrar</button>
+    </form>
+    -->
+
+    <!-- Mini Galería -->
+
+    <section id="gallery">
+      <picture><img src="" alt="" id="previa" /></picture>
+      <ul>
+        <li class="mini">
+          <img src="https://placehold.co/400/crimson/snow?text=1" alt="" />
+        </li>
+        <li class="mini">
+          <img src="https://placehold.co/400/turquoise/snow?text=2" alt="" />
+        </li>
+        <li class="mini">
+          <img src="https://placehold.co/400/gold/snow?text=3" alt="" />
+        </li>
+        <li class="mini">
+          <img src="https://placehold.co/400/navy/snow?text=4" alt="" />
+        </li>
+      </ul>
+    </section>
+  </body>
+</html>
