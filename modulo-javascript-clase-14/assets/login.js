@@ -50,18 +50,18 @@ const isMatchingPass = (password, email) => {
 // Función para mostrar error al validar el formulario.
 
 const isValidAccount = () => {
-  let valid = false;
+  let valid = false; // flag
   if (isEmpty(emailInput)) {
     showError(emailInput, "#email + small", "Por favor, complete los campos");
-    return;
+    return valid;
   }
   if (!isExistingEmail(emailInput.value)) {
     showError(emailInput, "#email + small", "El email ingresado es invalido");
-    return;
+    return valid;
   }
   if (isEmpty(passInput)) {
     showError(passInput, "#password + small", "Por favor, complete los campos");
-    return;
+    return valid;
   }
 
   if (!isMatchingPass(passInput.value, emailInput.value)) {
@@ -71,12 +71,12 @@ const isValidAccount = () => {
       "Los datos ingresados son incorrectos"
     );
     loginForm.reset();
-    return;
+    return valid;
   }
   alert("Ya estas en linea!");
   valid = true;
   errorMessage.textContent = "";
-  loginForm.reset;
+  loginForm.reset();
   return valid;
 };
 
