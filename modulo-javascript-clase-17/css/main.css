@@ -43,6 +43,7 @@ body {
 body::before {
   content: "";
   position: fixed;
+  display: none;
   width: 100vw;
   height: 95vh;
   left: 0;
@@ -54,6 +55,7 @@ body::before {
 }
 
 body.overlay::before {
+  display: block;
   background-color: rgba(35, 35, 35, 0.3);
   backdrop-filter: blur(4px);
   transition: all 250ms ease-in-out;
@@ -650,20 +652,34 @@ main {
   color: var(--bg-white);
   background-color: var(--nav-bg);
   border-radius: 0.25rem;
+  cursor: pointer;
 }
 
-#products header ul li:first-child {
+#products header ul li.active {
   background-color: var(--primary);
 }
 
-#products form {
+#products > form {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: .5rem;
 }
 
-#products form button {
+#products > form output{
+  color: var(--electric);
+  font-weight: 700;
+  width: 2rem;
+  height: 2rem;
+  border: 0.2rem solid var(--electric);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+#products > form button {
   text-decoration: none;
   border: 0.2rem solid var(--electric);
   font-weight: 700;
@@ -671,6 +687,13 @@ main {
   padding: 0.75rem 2rem;
   border-radius: 0.5rem;
   background-color: transparent;
+  cursor: pointer;
+}
+
+#products > form button:disabled{
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: .7;
 }
 
 @media (max-width: 1200px) {
@@ -767,8 +790,8 @@ main {
   color: var(--text-gray);
 }
 
-#list li > a {
-  text-decoration: none;
+#list li > form button {
+  cursor: pointer;
   background-color: var(--primary);
   font-weight: 700;
   color: var(--bg-white);
