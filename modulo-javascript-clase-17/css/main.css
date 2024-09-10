@@ -210,6 +210,7 @@ input#btn-menu:checked ~ #mobile-nav {
   background-color: var(--nav-bg);
   border-top: 2px solid transparent;
   display: none;
+  z-index: 9;
 }
 
 #mobile-nav a {
