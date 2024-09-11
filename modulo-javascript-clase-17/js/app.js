@@ -61,26 +61,27 @@ let appState = {
     page: 1 // 1 - 3
 }
 
-const list = select("#list")
+const cleanList = () => select("#list").innerHTML = null
 const formPaginate = select("#products > form")
 
 const showList = () => {
-    list.innerHTML = null
+    debugger;
+    cleanList()
     if (appState.category == "todas") {
-        formPaginate.style.display = "flex"
-        let lista = catalogo.filter((producto) => producto.id > appState.page - 1 * 6 && producto.id <= appState.page * 6)
+        formPaginate.style.display = "flex";
+        let start = (appState.page - 1) * 6
+        let end = appState.page * 6
+        let lista = catalogo.filter((producto) => producto.id > start && producto.id <= end)
         if (lista.length != 0) {
-            return lista.forEach((producto) => list.append(templateProduct(producto)))
+            return lista.forEach((producto) => select("#list").append(templateProduct(producto)))
         }
-        return;
     }
     if (appState.category != "todas") {
         formPaginate.style.display = "none"
         let lista = catalogo.filter((producto) => producto.category == appState.category)
         if (lista.length != 0) {
-            return lista.forEach((producto) => list.append(templateProduct(producto)))
+            return lista.forEach((producto) => select("#list").append(templateProduct(producto)))
         }
-        return;
     }
 
 }
@@ -102,7 +103,6 @@ selectAll('#categories li').forEach((cat) => cat.addEventListener('click', selec
 select('#btnPrev').addEventListener('click', (evento) => {
     appState.page = appState.page == 1 ? 1 : appState.page - 1
     appState.category = "todas"
-    console.log(appState)
     if (appState.page == 1) {
         evento.target.setAttribute('disabled', true)
     }
