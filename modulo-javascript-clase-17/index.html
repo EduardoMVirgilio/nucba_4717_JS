@@ -231,133 +231,20 @@
   <section id="products">
     <header>
       <h2>Hot NFTs</h2>
-      <ul>
-        <li class="active">🎨Todas</li>
-        <li>⚽Futbol</li>
-        <li>🎷Música</li>
-        <li>🎬Películas</li>
-        <li>🏎️Autos</li>
-        <li>️💼Políticos</li>
+      <ul id="categories">
+        <li data-category="todas" class="active">🎨Todas</li>
+        <li data-category="futbol">⚽Futbol</li>
+        <li data-category="musica">🎷Música</li>
+        <li data-category="peliculas">🎬Películas</li>
+        <li data-category="autos">🏎️Autos</li>
+        <li data-category="politicos">️💼Políticos</li>
       </ul>
     </header>
-    <ul id="list">
-      <li>
-        <picture>
-          <img src="./assets/products/daovinci.png" alt="" />
-        </picture>
-        <h3>Golden Messi</h3>
-        <p>Current Bid</p>
-        <figure>
-          <img src="./assets/user.png" alt="Avatar del creador" />
-          <figcaption>@thetroncous</figcaption>
-        </figure>
-        <p class="price">6.89 ETH</p>
-        <figure>
-          <img src="./assets/fire.png" alt="Icono de Fuego" />
-          <figcaption>05:12:07</figcaption>
-        </figure>
-        <form action="">
-          <button type="button">Add</button>
-        </form>
-      </li>
-      <li>
-        <picture>
-          <img src="./assets/products/fangster.png" alt="" />
-        </picture>
-        <h3>Diego Maradona</h3>
-        <p>Current Bid</p>
-        <figure>
-          <img src="./assets/user.png" alt="Avatar del creador" />
-          <figcaption>@kirik8</figcaption>
-        </figure>
-        <p class="price">5.89 ETH</p>
-        <figure>
-          <img src="./assets/fire.png" alt="Icono de Fuego" />
-          <figcaption>05:12:07</figcaption>
-        </figure>
-        <form action="">
-          <button type="button">Add</button>
-        </form>
-      </li>
-      <li>
-        <picture>
-          <img src="./assets/products/sherbet.png" alt="" />
-        </picture>
-        <h3>L10nel Messi</h3>
-        <p>Current Bid</p>
-        <figure>
-          <img src="./assets/user.png" alt="Avatar del creador" />
-          <figcaption>@FD10S</figcaption>
-        </figure>
-        <p class="price">6.89 ETH</p>
-        <figure>
-          <img src="./assets/fire.png" alt="Icono de Fuego" />
-          <figcaption>05:12:07</figcaption>
-        </figure>
-        <form action="">
-          <button type="button">Add</button>
-        </form>
-      </li>
-      <li>
-        <picture>
-          <img src="./assets/products/cutemonkey.png" alt="" />
-        </picture>
-        <h3>M. Schumacher</h3>
-        <p>Current Bid</p>
-        <figure>
-          <img src="./assets/user.png" alt="Avatar del creador" />
-          <figcaption>@Urastream</figcaption>
-        </figure>
-        <p class="price">3.67 ETH</p>
-        <figure>
-          <img src="./assets/fire.png" alt="Icono de Fuego" />
-          <figcaption>05:12:07</figcaption>
-        </figure>
-        <form action="">
-          <button type="button">Add</button>
-        </form>
-      </li>
-      <li>
-        <picture>
-          <img src="./assets/products/cuteshiba.png" alt="" />
-        </picture>
-        <h3>Fernando Alonso</h3>
-        <p>Current Bid</p>
-        <figure>
-          <img src="./assets/user.png" alt="Avatar del creador" />
-          <figcaption>@Gulineta</figcaption>
-        </figure>
-        <p class="price">4.52 ETH</p>
-        <figure>
-          <img src="./assets/fire.png" alt="Icono de Fuego" />
-          <figcaption>05:12:07</figcaption>
-        </figure>
-        <form action="">
-          <button type="button">Add</button>
-        </form>
-      </li>
-      <li>
-        <picture><img src="./assets/products/toretto.png" alt="" /></picture>
-        <h3>Toretto</h3>
-        <p>Current Bid</p>
-        <figure>
-          <img src="./assets/user.png" alt="Avatar del creador" />
-          <figcaption>@HardBena</figcaption>
-        </figure>
-        <p class="price">7.33 ETH</p>
-        <figure>
-          <img src="./assets/fire.png" alt="Icono de Fuego" />
-          <figcaption>05:12:07</figcaption>
-        </figure>
-        <form action="">
-          <button type="button">Add</button>
-        </form>
-      </li>
-    </ul>
+    <ul id="list"></ul>
     <form>
-      <button type="button" disabled>Anterior</button>
+      <button type="button" id="btnPrev" d>Anterior</button>
       <output id="page">1</output>
-      <button type="button">Siguiente</button>
+      <button type="button" id="btnNext">Siguiente</button>
     </form>
   </section>
 
