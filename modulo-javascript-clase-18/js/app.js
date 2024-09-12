@@ -123,3 +123,10 @@ select('#btnNext').addEventListener('click', (evento) => {
     select('#page').innerText = appState.page
     showList()
 })
+
+/* Logica de carrito */
+
+
+/* Render del Carrito Dinamico */
+
+/* Funcionalidades del Carrito Dinamico */
