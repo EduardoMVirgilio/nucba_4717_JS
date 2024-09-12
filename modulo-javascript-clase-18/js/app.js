@@ -69,8 +69,8 @@ const showList = () => {
     if (appState.category == "todas") {
         formPaginate.style.display = "flex"
         let quantity = 6
-        let start = (appState.page - 1) * quantity
-        let end = appState.page * quantity
+        let start = (appState.page - 1) * quantity // 0 - 6 - 12
+        let end = appState.page * quantity // 6 - 12 - 18
         let lista = catalogo.filter((producto) => producto.id > start && producto.id <= end)
         if (lista.length != 0) {
             return lista.forEach((producto) => list.append(templateProduct(producto)))
