@@ -52,13 +52,17 @@ const templateProduct = (datos) => {
         <p class="price">${bid} ETH</p>`
     item.appendChild(itemForm)
     /* Agregamos la funcionalidad del Carrito */
-
+    itemForm.addEventListener('submit', (event) => {
+        event.preventDefault()
+        addProductToCart(id)
+    })
     return item
 }
 
 let appState = {
     category: "todas",
-    page: 1 // 1 - 3
+    page: 1, // 1 - 3
+    cart: read('carrito') || []
 }
 
 const list = select("#list")
@@ -113,6 +117,7 @@ select('#btnPrev').addEventListener('click', (evento) => {
     select('#page').innerText = appState.page
     showList()
 })
+
 select('#btnNext').addEventListener('click', (evento) => {
     appState.page = appState.page == 3 ? 3 : appState.page + 1
     appState.category = "todas"
@@ -129,7 +134,102 @@ select('#btnNext').addEventListener('click', (evento) => {
 
 /* Logica de carrito */
 
+const addProductToCart = (id) => {
+    let product = catalogo.find((p) => p.id == id)
+    let productIsInCart = appState.cart.some(item => item.product.id == id)
+    if (!productIsInCart) {
+        appState.cart.push({ product, quantity: 1 });
+        save('carrito', localStorage, appState.cart);
+    } else {
+        appState.cart = appState.cart.map((item) => {
+            if (item.product.id == id) {
+                item.quantity = item.quantity + 1
+                return item
+            }
+            return item
+        })
+        save('carrito', localStorage, appState.cart);
+    }
+    return renderCart()
+}
+
+
+const removeProductToCart = (id) => {
+    let product = catalogo.find((p) => p.id == id)
+    let productIsInCart = appState.cart.some(item => item.product.id == id)
+    if (productIsInCart) {
+        appState.cart = appState.cart.filter((item) => item.product.id != product.id);
+        save('carrito', localStorage, appState.cart);
+    }
+    return renderCart()
+}
+
+const addQuantityItem = (id) => {
+    appState.cart = appState.cart.map((item) => {
+        if (item.product.id == id) {
+            item.quantity = item.quantity + 1
+            return item
+        }
+        return item
+    })
+    save('carrito', localStorage, appState.cart);
+    return renderCart()
+}
+
+const reduceQuantityItem = (id) => {
+    appState.cart = appState.cart.map((item) => {
+        if (item.product.id == id) {
+            item.quantity = item.quantity - 1
+            return item
+        }
+        return item
+    }).filter(item => item.quantity > 0)
+    save('carrito', localStorage, appState.cart);
+    return renderCart()
+}
+
 
 /* Render del Carrito Dinamico */
 
-/* Funcionalidades del Carrito Dinamico */
+const renderItem = (item) => {
+    const { product, quantity } = item
+    const { id, name, cardImg, user, bid } = product
+    const itemElement = create('li', null, { "data-product": id })
+    itemElement.innerHTML = `
+         <picture><img src="${cardImg}" alt="Imagen del NFT de ${name}"></picture>
+          <ul>
+            <li>${name}</li>
+            <li>@${user}</li>
+            <li>${bid * quantity} ETH (${quantity})</li>
+          </ul>`
+    const itemForm = create('form', null, {})
+    const itemFormBtnAdd = create('button', `+`, { type: "button", "data-product": id })
+    const itemFormBtnReduce = create('button', `-`, { type: "button", "data-product": id })
+
+    itemForm.addEventListener('submit', (e) => e.preventDefault())
+    itemFormBtnAdd.addEventListener('click', (e) => addQuantityItem(e.target.dataset.product))
+    itemFormBtnReduce.addEventListener('click', (e) => reduceQuantityItem(e.target.dataset.product))
+    itemForm.append(itemFormBtnReduce, itemFormBtnAdd)
+    itemElement.appendChild(itemForm)
+    return itemElement
+}
+
+const renderCart = () => {
+    const cartList = select("#cart ul")
+    cartList.innerHTML = null
+    appState.cart.forEach((item) => cartList.append(renderItem(item)))
+    const cartTotal = select("#total")
+    const total = appState.cart.reduce((pItem, item) => pItem += item.product.bid * item.quantity, 0)
+    cartTotal.innerHTML = `${total} ETH`
+}
+
+renderCart()
+
+select("#finish").addEventListener('click', () => {
+    if (confirm("Estas seguro de finalizar tu compra?")) {
+        alert('Gracias por tu compra! 😀')
+        appState.cart = []
+        localStorage.removeItem('carrito');
+        renderCart()
+    }
+})
