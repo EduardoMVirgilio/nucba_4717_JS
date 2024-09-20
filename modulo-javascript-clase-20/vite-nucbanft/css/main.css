@@ -21,6 +21,8 @@
   --electric: #64d3ff;
   --text-1: #30cfd0;
   --text-2: #c43ad6;
+
+  --ti-cursor-color:#30cfd0;
 }
 
 * {
@@ -265,11 +267,8 @@ main {
   animation: slide-top 500ms ease-in-out 1 forwards;
 }
 
-#content h1 span {
-  position: relative;
-  background-image: linear-gradient(to top, var(--text-1), var(--text-2));
-  background-clip: text;
-}
+
+/*
 #content h1 span::before {
   content: "";
   position: absolute;
@@ -293,7 +292,7 @@ main {
   animation: type2 1.4s steps(7) 1.2s 1 forwards,
     blink 500ms linear 3s infinite alternate;
 }
-
+*/
 @keyframes type {
   100% {
     transform: translateX(100%);

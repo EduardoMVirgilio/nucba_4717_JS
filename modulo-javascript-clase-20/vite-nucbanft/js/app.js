@@ -1,3 +1,6 @@
+import '../css/main.css'
+import { catalogo } from './data.js'
+import { select, selectAll, create, read, save } from './utils.js'
 /* Boton del Menu */
 
 const btnMenu = select('#btn-menu')
@@ -233,3 +236,22 @@ select("#finish").addEventListener('click', () => {
         renderCart()
     }
 })
+
+
+// Typewriting
+import TypeIt from "typeit";
+
+new TypeIt(select("#content h1"), {
+    strings: ["Descubre la nueva era de Crypto "],
+    speed: 100,
+    cursorChar: "|",
+}).go()
+
+// Scroll Reveal
+
+import ScrollReveal from "scrollreveal"
+
+const reveal = (selector, direction = 'bottom', duration = 1000) => ScrollReveal({ distance: "100px", reset: true, delay: 100 }).reveal(select(selector), { origin: direction, duration })
+
+reveal("#info", "bottom")
+reveal("#discover", "left")

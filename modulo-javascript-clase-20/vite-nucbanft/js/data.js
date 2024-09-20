@@ -1,4 +1,4 @@
-const catalogo = [
+export const catalogo = [
   {
     id: 1,
     name: "Golden Messi",
