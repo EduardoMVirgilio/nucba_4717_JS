@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App | Clase 25</title>
+    <link rel="stylesheet" href="main.css">
+    <script type="module" src="app.js"></script>
+</head>
+
+<body>
+    <form id="search">
+        <fieldset id="regions">
+            <input type="radio" name="region" id="south_america" value="South America">
+            <label for="south_america">América del Sur</label>
+            <input type="radio" name="region" id="central_america" value="Central America">
+            <label for="central_america">América Central</label>
+            <input type="radio" name="region" id="caribbean" value="Caribbean">
+            <label for="caribbean">Caribe</label>
+        </fieldset>
+        <fieldset id="meteor">
+            <input type="text" id="city" list="cities" placeholder="Escribe tu cuidad">
+            <button type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17.5 21H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />
+                    <path d="M22 10a3 3 0 0 0-3-3h-2.207a5.502 5.502 0 0 0-10.702.5" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="loader">
+                    <path d="M12 2v4" />
+                    <path d="m16.2 7.8 2.9-2.9" />
+                    <path d="M18 12h4" />
+                    <path d="m16.2 16.2 2.9 2.9" />
+                    <path d="M12 18v4" />
+                    <path d="m4.9 19.1 2.9-2.9" />
+                    <path d="M2 12h4" />
+                    <path d="m4.9 4.9 2.9 2.9" />
+                </svg>
+            </button>
+            <small id="error">Hemos tenido un error</small>
+            <datalist id="cities">
+                <option value="Buenos Aires">Buenos Aires</option>
+            </datalist>
+        </fieldset>
+    </form>
+    <main id="content"></main>
+</body>
+
+</html>
