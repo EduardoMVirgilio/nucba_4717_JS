@@ -12,15 +12,14 @@
 <body>
     <form id="search">
         <fieldset id="regions">
-            <input type="radio" name="region" id="south_america" value="South America">
-            <label for="south_america">América del Sur</label>
-            <input type="radio" name="region" id="central_america" value="Central America">
-            <label for="central_america">América Central</label>
-            <input type="radio" name="region" id="caribbean" value="Caribbean">
-            <label for="caribbean">Caribe</label>
+            <select name="provincias" id="provincias">
+                <option value="">Seleccione una provincia</option>
+            </select>
+            <select name="municipios" id="municipios">
+                <option value="">Seleccione un municipio/comuna</option>
+            </select>
         </fieldset>
         <fieldset id="meteor">
-            <input type="text" id="city" list="cities" placeholder="Escribe tu cuidad">
             <button type="button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -41,9 +40,6 @@
                 </svg>
             </button>
             <small id="error">Hemos tenido un error</small>
-            <datalist id="cities">
-                <option value="Buenos Aires">Buenos Aires</option>
-            </datalist>
         </fieldset>
     </form>
     <main id="content"></main>

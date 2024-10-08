@@ -11,10 +11,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-input[type="radio"] {
-  display: none;
+  justify-content: center;
 }
 
 #search {
@@ -26,7 +23,8 @@ input[type="radio"] {
 
 #regions {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   gap: 1rem;
   & label {
     background-color: snow;
@@ -35,23 +33,22 @@ input[type="radio"] {
     color: purple;
     transition: all 300ms ease-in-out;
   }
-  & input:checked + label {
-    background-color: gold;
-    color: black;
+  & select {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    outline: none;
+    border-radius: 0.5rem;
+    background-color: snow;
+    color: purple;
   }
 }
 
 #meteor {
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  background-color: snow;
-  & input {
-    width: calc(100% - 2rem);
-    padding: 0.25rem 0.75rem;
-    outline: none;
-  }
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
   & button {
     width: 2rem;
     height: 2rem;
@@ -81,6 +78,20 @@ input[type="radio"] {
     &.show {
       display: block;
     }
+  }
+}
+
+#content {
+  color: snow;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  & img {
+    width: 100px;
   }
 }
 
