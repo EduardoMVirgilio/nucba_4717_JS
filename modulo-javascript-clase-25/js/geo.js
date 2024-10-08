@@ -1,6 +1,7 @@
 /*
 https://apis.datos.gob.ar/georef/api/municipios?provincia=06&campos=id,nombre,centroide&max=200
 https://apis.datos.gob.ar/georef/api/provincias
+https://apis.datos.gob.ar/georef/api/municipios?id=022042
 */
 import { request } from "./utils.js"
 
