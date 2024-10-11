@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <script type="module">
+        /*
+        function create(etiqueta, contenido, atributos) {
+            const elemento = document.createElement(etiqueta)
+            elemento.innerHTML = contenido
+            const propiedades = Object.keys(atributos)
+            propiedades.forEach(function (propiedad) {
+                elemento.setAttribute(propiedad, atributos[propiedad])
+            })
+            return elemento
+        }
+        */
+        /*
+        const create = (tag = "", content = "", attr = {}) => {
+            const elemento = document.createElement(tag)
+            elemento.innerHTML = content
+            Object.keys(attr).forEach((propiedad) => elemento.setAttribute(propiedad, attr[propiedad]))
+            return elemento
+        }*/
+
+        /*
+            URL + Query Params 
+                ?provincia=Buenos%20Aires 
+                `?${new SearchParams({provincia:"Buenos Aires"}).toString()}`
+                
+                
+                */
+        const request = async (url, datos = null) => {
+            try {
+                const respuesta = await fetch(`${url}${datos ? `?${new SearchParams(datos).toString()}` : ""}`)
+                return respuesta.ok ? await respuesta.json() : respuesta.statusText
+            } catch (error) {
+                console.log(error)
+                return error
+            }
+        }
+        const create = (tag = "", content = "", attr = {}) => Object.assign(document.createElement(tag), { innerHTML: content, ...attr })
+        const init = async () => {
+            const dogs = await request('https://dogapi.dog/api/v2/dogs')
+            const etiqueta = create('main', `<pre>${dogs}</pre>`, {})
+            document.body.appendChild(etiqueta)
+        }
+        init()
+    </script>
+</body>
+
+</html>
