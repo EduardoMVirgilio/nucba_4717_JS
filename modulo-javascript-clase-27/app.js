@@ -7,7 +7,7 @@ const loader = select('.loader');
 
 const listaPersonajes = async () => { }
 
-const observer = new IntersectionObserver(async (entries) => { }, {});
+const observer = null;
 
 listaPersonajes()
 
