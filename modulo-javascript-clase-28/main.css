@@ -70,7 +70,7 @@ header {
 #lista {
   width: 75%;
   display: grid;
-  grid-template-columns: repeat(3, minmax(320px, 1fr));
+  grid-template-columns: repeat(4, minmax(320px, 1fr));
   gap: 1rem;
   padding: 1rem;
   & li {
@@ -122,6 +122,9 @@ header {
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  position: fixed;
+  bottom: 0;
+  padding: 1rem;
   & button {
     width: 2rem;
     height: 2rem;
