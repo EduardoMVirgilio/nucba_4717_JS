@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^5.4.1"
+    "vite": "^6.2.2"
   },
   "dependencies": {
     "scrollreveal": "^4.0.9",
